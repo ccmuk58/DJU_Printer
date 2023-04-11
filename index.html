@@ -63,6 +63,7 @@
 			}
 		});
 
+		var HOME_PATH = window.HOME_PATH || '.';
 
 		var markerData = [
 			{
@@ -89,6 +90,7 @@
 			{
 				position: new naver.maps.LatLng(37.873437623036054, 127.15501250799883),
 				title: "중앙도서관",
+				icon: HOME_PATH + '/img/clopy.png',
 				description: "중앙도서관입니다. 프린터기 위치 1, 2, 3, 4층 . . .<br>"
 					+ "설명설명주저리주저리 . . .  <br><br>"
 					+ "<a href='http://www.naver.com'>링크예시</a>"
@@ -96,6 +98,7 @@
 			{
 				position: new naver.maps.LatLng(37.87520812046444, 127.15996329909976),
 				title: "예술관",
+				icon: HOME_PATH + '/img/clopy.png',
 				description: "예술관입니다. 프린터기 위치 1층 . . .<br>"
 					+ "설명설명주저리주저리 . . .  <br><br>"
 					+ "<a href='http://www.naver.com'>링크예시</a>"
@@ -103,6 +106,7 @@
 			{
 				position: new naver.maps.LatLng(37.87023227672697, 127.15688106734378),
 				title: "대학원",
+				icon: HOME_PATH + '/img/clopy.png',
 				description: "대학원입니다. 프린터기 위치 1층 . . .<br>"
 					+ "설명설명주저리주저리 . . .  <br><br>"
 					+ "<a href='http://www.naver.com'>링크예시</a>"
@@ -123,13 +127,15 @@
 			}
 		];
 
+		
 		var HOME_PATH = window.HOME_PATH || '.';
 		for (var i = 0; i < markerData.length; i++) {
+			var markerIcon = markerData[i].icon|| HOME_PATH + '/img/printer.png';
 			var marker = new naver.maps.Marker({
 				position: markerData[i].position,
 				map: map,
 				icon: {
-					url: HOME_PATH + '/img/printer.png',
+					url: markerIcon,
 					size: new naver.maps.Size(100, 100),
 					scaledSize: new naver.maps.Size(50, 50),
 					origin: new naver.maps.Point(0, 0),
