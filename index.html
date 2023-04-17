@@ -64,14 +64,13 @@
 		});
 
 		var HOME_PATH = window.HOME_PATH || '.';
-
+		var clopyText = "clopy 이용<br><br>&lt;clopy 이용방법&gt; <br>1) 충전: dj.clopy.co.kr 사이트 접속, 학번으로 로그인 후 충전 <br>*키오스크(도서관 1층, 여자 생활관 cu, 학생회관 1층) 사용: 현금충전, 신용카드<br>*홈페이지 사용: 신용카드, 계좌이체, 모바일 결제, 카카오페이 가능<br>2) 출력 (도서관 pc, 개인 노트북 가능)<br>*프린터 설치 장소: 여생활관(각동), 남생활관(각동), 중앙도서관 1,2,4층, 신관 택배실";
 		var markerData = [
 			{
 				position: new naver.maps.LatLng(37.87126827034607, 127.15525516151271),
 				title: "학생회관",
-				description: "학생회관입니다. 프린터기 위치 1층 . . .<br>"
-					+ "설명설명주저리주저리 . . .  <br><br>"
-					+ "<a href='http://www.naver.com'>링크예시</a>"
+				icon: HOME_PATH + '/img/clopy.png',
+				description: clopyText
 			},
 			{
 				position: new naver.maps.LatLng(37.87184322048491, 127.15650657868743),
@@ -91,39 +90,31 @@
 				position: new naver.maps.LatLng(37.873437623036054, 127.15501250799883),
 				title: "중앙도서관",
 				icon: HOME_PATH + '/img/clopy.png',
-				description: "중앙도서관입니다. 프린터기 위치 1, 2, 3, 4층 . . .<br>"
-					+ "설명설명주저리주저리 . . .  <br><br>"
-					+ "<a href='http://www.naver.com'>링크예시</a>"
+				description: clopyText
 			},
 			{
 				position: new naver.maps.LatLng(37.87520812046444, 127.15996329909976),
 				title: "예술관",
 				icon: HOME_PATH + '/img/clopy.png',
-				description: "예술관입니다. 프린터기 위치 1층 . . .<br>"
-					+ "설명설명주저리주저리 . . .  <br><br>"
-					+ "<a href='http://www.naver.com'>링크예시</a>"
+				description: clopyText
 			},
 			{
 				position: new naver.maps.LatLng(37.87023227672697, 127.15688106734378),
 				title: "대학원",
 				icon: HOME_PATH + '/img/clopy.png',
-				description: "대학원입니다. 프린터기 위치 1층 . . .<br>"
-					+ "설명설명주저리주저리 . . .  <br><br>"
-					+ "<a href='http://www.naver.com'>링크예시</a>"
+				description: clopyText
 			},
 			{
 				position: new naver.maps.LatLng( 37.869110939247896, 127.1566229743098),
 				title: "여자기숙사",
-				description: "여자기숙사입니다. 프린터기 위치 1층 . . .<br>"
-					+ "설명설명주저리주저리 . . .  <br><br>"
-					+ "<a href='http://www.naver.com'>링크예시</a>"
+				icon: HOME_PATH + '/img/clopy.png',
+				description: clopyText
 			},
 			{
 				position: new naver.maps.LatLng(37.87417415786884, 127.15838972639047),
 				title: "남자기숙사",
-				description: "남자기숙사입니다. 프린터기 위치 1층 . . .<br>"
-					+ "설명설명주저리주저리 . . .  <br><br>"
-					+ "<a href='http://www.naver.com'>링크예시</a>"
+				icon: HOME_PATH + '/img/clopy.png',
+				description: clopyText
 			}
 		];
 
