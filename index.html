@@ -35,7 +35,10 @@
 			height:auto;
 			max-width: 500px;
 		}
-
+		div > title {
+			width: 30px;
+			height: 30px;
+		}
 		@keyframes fadeInAndMove {
 			100% {
 				opacity: 1;
@@ -76,7 +79,7 @@
 				position: new naver.maps.LatLng(37.87126827034607, 127.15525516151271),
 				title: "학생회관 1층",
 				icon: HOME_PATH + '/img/clopy.png',
-				description: clopyText
+				description: imgTag100 + "3.jpg' ><br>" + clopyText
 			},
 			{
 				position: new naver.maps.LatLng(37.87184322048491, 127.15650657868743),
@@ -84,15 +87,21 @@
 				description: imgTag100 + "4.jpg' >" +imgTag100 + "6.jpg' ><br>" + "- 비치된 컴퓨터로 출력 후, 계좌이체로 결제 (담당자 분들이 있음)<br>- 컬러 100원 흑백 50원 이외에도 추가 작업 가능( 제본, 스캔 등)"
 			},
 			{
-				position: new naver.maps.LatLng(37.87297713570028, 127.15577304674159),
-				title: "정보전산원 1층",
-				description: imgTag100 + "7.jpg' ><br>" +"- 최초 복합기 카드 등록 후, 비치된 컴퓨터로 인쇄"
-			},
-			{
 				position: new naver.maps.LatLng(37.873437623036054, 127.15501250799883),
 				title: "중앙도서관 1,2,4층",
 				icon: HOME_PATH + '/img/clopy.png',
 				description: clopyText
+			},
+			{
+				position: new naver.maps.LatLng(37.873437623036054, 127.15501250799883+0.00015),
+				title: "중앙도서관 1층 키오스크",
+				icon: HOME_PATH + '/img/kiosk.png',
+				description:""
+			},
+			{
+				position: new naver.maps.LatLng(37.87297713570028+0.0001, 127.15577304674159-0.0001),
+				title: "정보전산원 1층",
+				description: imgTag100 + "7.jpg' ><br>" +"- 최초 복합기 카드 등록 후, 비치된 컴퓨터로 인쇄"
 			},
 			{
 				position: new naver.maps.LatLng(37.87520812046444, 127.15996329909976),
@@ -119,12 +128,6 @@
 				description: clopyText
 			},
 			{
-				position: new naver.maps.LatLng(37.873437623036054, 127.15501250799883+0.00015),
-				title: "중앙도서관 1층 키오스크",
-				icon: HOME_PATH + '/img/kiosk.png',
-				description:""
-			},
-			{
 				position: new naver.maps.LatLng( 37.869110939247896, 127.1566229743098+0.00015),
 				title: "여자 기숙사 cu 키오스크",
 				icon: HOME_PATH + '/img/kiosk.png',
@@ -134,7 +137,7 @@
 				position: new naver.maps.LatLng(37.87126827034607, 127.15525516151271+0.00015),
 				title: "학생회관 1층 키오스크",
 				icon: HOME_PATH + '/img/kiosk.png',
-				description: imgTag100 + "2.jpg' >" + imgTag100 + "3.jpg' >"
+				description: imgTag100 + "2.jpg' >"
 			},
 		];
 
