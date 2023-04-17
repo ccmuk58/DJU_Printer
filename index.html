@@ -64,7 +64,7 @@
 		});
 
 		var HOME_PATH = window.HOME_PATH || '.';
-		var clopyText = "clopy 이용<br><br>&lt;clopy 이용방법&gt; <br>1) 충전: dj.clopy.co.kr 사이트 접속, 학번으로 로그인 후 충전 <br>*키오스크(도서관 1층, 여자 생활관 cu, 학생회관 1층) 사용: 현금충전, 신용카드<br>*홈페이지 사용: 신용카드, 계좌이체, 모바일 결제, 카카오페이 가능<br>2) 출력 (도서관 pc, 개인 노트북 가능)<br>*프린터 설치 장소: 여생활관(각동), 남생활관(각동), 중앙도서관 1,2,4층, 신관 택배실";
+		var clopyText = "- clopy 이용<br>&lt;clopy 이용방법&gt; <br>1) 충전: dj.clopy.co.kr 사이트 접속, 학번으로 로그인 후 충전 <br>*키오스크(도서관 1층, 여자 생활관 cu, 학생회관 1층) 사용: 현금충전, 신용카드<br>*홈페이지 사용: 신용카드, 계좌이체, 모바일 결제, 카카오페이 가능<br>2) 출력 (도서관 pc, 개인 노트북 가능)<br>*프린터 설치 장소: 여생활관(각동), 남생활관(각동), 중앙도서관 1,2,4층, 신관 택배실";
 		var markerData = [
 			{
 				position: new naver.maps.LatLng(37.87126827034607, 127.15525516151271),
@@ -75,22 +75,18 @@
 			{
 				position: new naver.maps.LatLng(37.87184322048491, 127.15650657868743),
 				title: "인문과학대 111호",
-				description: "인문학관입니다. 프린터기 위치 1층 . . .<br>"
-					+ "설명설명주저리주저리 . . .  <br><br>"
-					+ "<a href='http://www.naver.com'>링크예시</a>"
+				description: "- 비치된 컴퓨터로 출력 후, 계좌이체로 결제 (담당자 분들이 있음)<br>- 컬러 100원 흑백 50원 이외에도 추가 작업 가능( 제본, 스캔 등)"
 			},
 			{
 				position: new naver.maps.LatLng(37.87297713570028, 127.15577304674159),
 				title: "정보전산원 1층",
-				description: "정보전산원입니다. 프린터기 위치 1층 . . .<br>"
-					+ "설명설명주저리주저리 . . .  <br><br>"
-					+ "<a href='http://www.naver.com'>링크예시</a>"
+				description: "- 최초 복합기 카드 등록 후, 비치된 컴퓨터로 인쇄"
 			},
 			{
 				position: new naver.maps.LatLng(37.873437623036054, 127.15501250799883),
 				title: "중앙도서관 1,2,4층",
 				icon: HOME_PATH + '/img/clopy.png',
-				description: clopyText
+				description: "<img src='./img/description1.jpg' style='width:40%'><br>" + clopyText
 			},
 			{
 				position: new naver.maps.LatLng(37.87520812046444, 127.15996329909976),
