@@ -22,13 +22,18 @@
 		}
 
 		.iw_inner {
-			min-width: 500px;
 			width: auto;
 			height: auto;
 			font-size: xx-large;
 			opacity: 0;
 			transform: translateY(-20px);
 			animation: fadeInAndMove 0.5s forwards;
+		}
+		.iw_inner img{
+			display:inline-block;
+			width:100%;
+			height:auto;
+			max-width: 500px;
 		}
 
 		@keyframes fadeInAndMove {
@@ -65,7 +70,7 @@
 
 		var HOME_PATH = window.HOME_PATH || '.';
 		var clopyText = "- clopy 이용<br>&lt;clopy 이용방법&gt; <br>1) 충전: dj.clopy.co.kr 사이트 접속, 학번으로 로그인 후 충전 <br>*키오스크(도서관 1층, 여자 생활관 cu, 학생회관 1층) 사용: 현금충전, 신용카드<br>*홈페이지 사용: 신용카드, 계좌이체, 모바일 결제, 카카오페이 가능<br>2) 출력 (도서관 pc, 개인 노트북 가능)<br>*프린터 설치 장소: 여생활관(각동), 남생활관(각동), 중앙도서관 1,2,4층, 신관 택배실";
-		var imgTag100 = "<img style='max-height:500px' src='./img/description";
+		var imgTag100 = "<img src='./img/description";
 		var markerData = [
 			{
 				position: new naver.maps.LatLng(37.87126827034607, 127.15525516151271),
@@ -200,7 +205,6 @@
 				currentInfoWindow = null;
 			}
 		});
-
 		
 	</script>
 </body>
