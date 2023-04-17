@@ -159,26 +159,6 @@
 			naver.maps.Event.addListener(marker, "click", getMarkerClickListener(map, marker, markerData[i].title, markerData[i].description));
 		}
 
-		function getMarkerClickListener(map, marker, title, description) {
-			return function (e) {
-				var contentString = [
-					'<div class="iw_inner" style="padding: 5px 20px">',
-					'<h3>' + title + '</h3>',
-					'<p>' + description + '</p>',
-					'</div>'
-				].join('');
-				var infowindow = new naver.maps.InfoWindow({
-					content: contentString
-				});
-
-				if (infowindow.getMap()) {
-					infowindow.close();
-				} else {
-					infowindow.open(map, marker);
-				}
-			};
-		}
-
 		var currentInfoWindow = null;
 		function getMarkerClickListener(map, marker, title, description) {
 			return function (e) {
