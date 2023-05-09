@@ -8,49 +8,67 @@
 	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=o4tn68jcjx">
 	</script>
 	<style>
-		html,
-		body {
-			width: 100%;
-			height: 100%;
-			margin: 0;
-			padding: 0;
-		}
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
-		#map {
-			width: 100%;
-			height: 100%;
-		}
+        #map {
+            width: 100%;
+            height: 100%;
+        }
 
-		.iw_inner {
-			width: auto;
-			height: auto;
-			font-size: xx-large;
-			opacity: 0;
-			transform: translateY(-20px);
-			animation: fadeInAndMove 0.5s forwards;
-		}
-		.iw_inner img{
-			display:inline-block;
-			width:100%;
-			height:auto;
-			max-width: 500px;
-		}
-		div > title {
-			width: 30px;
-			height: 30px;
-		}
-		@keyframes fadeInAndMove {
-			100% {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
+        .info-panel {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background-color: white;
+            padding: 10px;
+            box-shadow: 0px -2px 6px 0px rgba(50, 50, 50, 0.1);
+            transition: height 0.3s, opacity 0.3s, visibility 0.3s;
+            opacity: 0;
+            visibility: hidden;
+            overflow: auto;
+			font-size: large;
+        }
+
+        .info-panel.expanded {
+            opacity: 1;
+            visibility: visible;
+            height: 70%;
+        }
+
+        .info-panel h2 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .info-panel p {
+            display: none;
+        }
+
+        .info-panel img {
+            margin: 10px 0;
+        }
+
+        .info-panel.expanded p {
+            display: block;
+            margin-top: 5px;
+        }
+
 	</style>
 </head>
 
 <body>
 	<div id="map"></div>
-
+<div id="info-panel" class="info-panel">
+	<p></p>
+</div>
 	<script>
 		var mapOptions = {
 			center: new naver.maps.LatLng(37.872, 127.1575),
@@ -73,7 +91,7 @@
 
 		var HOME_PATH = window.HOME_PATH || '.';
 		var clopyText = "- clopy 이용<br>&lt;clopy 이용방법&gt; <br>1) 충전: <a href='https://dj.clopy.co.kr'>dj.clopy.co.kr</a> 사이트 접속, 학번으로 로그인 후 충전 <br>*키오스크(도서관 1층, 여자 생활관 cu, 학생회관 1층) 사용: 현금충전, 신용카드<br>*홈페이지 사용: 신용카드, 계좌이체, 모바일 결제, 카카오페이 가능<br>2) 출력 (도서관 pc, 개인 노트북 가능)<br>*프린터 설치 장소: 여생활관(각동), 남생활관(각동), 중앙도서관 1,2,4층, 신관 택배실";
-		var imgTag100 = "<img src='./img/description";
+		var imgTag100 = "<img style='height:400px; width:400px;' src='./img/description";
 		var markerData = [
 			{
 				position: new naver.maps.LatLng(37.87126827034607, 127.15525516151271),
@@ -84,7 +102,7 @@
 			{
 				position: new naver.maps.LatLng(37.87184322048491, 127.15650657868743),
 				title: "인문과학대 111호",
-				description: imgTag100 + "4.jpg' >" +imgTag100 + "6.jpg' ><br>" + "- 비치된 컴퓨터로 출력 후, 계좌이체로 결제 (담당자 분들이 있음)<br>- 컬러 100원 흑백 50원 이외에도 추가 작업 가능( 제본, 스캔 등)"
+				description: imgTag100 + "4.jpg' >" + imgTag100 + "6.jpg' ><br>" + "- 비치된 컴퓨터로 출력 후, 계좌이체로 결제 (담당자 분들이 있음)<br>- 컬러 100원 흑백 50원 이외에도 추가 작업 가능( 제본, 스캔 등)"
 			},
 			{
 				position: new naver.maps.LatLng(37.873437623036054, 127.15501250799883),
@@ -93,15 +111,15 @@
 				description: clopyText
 			},
 			{
-				position: new naver.maps.LatLng(37.873437623036054, 127.15501250799883+0.00015),
+				position: new naver.maps.LatLng(37.873437623036054, 127.15501250799883 + 0.00015),
 				title: "중앙도서관 1층 키오스크",
 				icon: HOME_PATH + '/img/kiosk.png',
-				description:""
+				description: ""
 			},
 			{
-				position: new naver.maps.LatLng(37.87297713570028+0.0001, 127.15577304674159-0.0001),
+				position: new naver.maps.LatLng(37.87297713570028 + 0.0001, 127.15577304674159 - 0.0001),
 				title: "정보전산원 1층",
-				description: imgTag100 + "7.jpg' ><br>" +"- 최초 복합기 카드 등록 후, 비치된 컴퓨터로 인쇄"
+				description: imgTag100 + "7.jpg' ><br>" + "- 최초 복합기 카드 등록 후, 비치된 컴퓨터로 인쇄"
 			},
 			{
 				position: new naver.maps.LatLng(37.87520812046444, 127.15996329909976),
@@ -113,10 +131,10 @@
 				position: new naver.maps.LatLng(37.87023227672697, 127.15688106734378),
 				title: "대학원 1층",
 				icon: HOME_PATH + '/img/clopy.png',
-				description: imgTag100 + "8.jpg' >" +imgTag100 + "9.jpg' ><br>" +clopyText
+				description: imgTag100 + "8.jpg' >" + imgTag100 + "9.jpg' ><br>" + clopyText
 			},
 			{
-				position: new naver.maps.LatLng( 37.869110939247896, 127.1566229743098),
+				position: new naver.maps.LatLng(37.869110939247896, 127.1566229743098),
 				title: "여자기숙사 ",
 				icon: HOME_PATH + '/img/clopy.png',
 				description: clopyText
@@ -128,23 +146,23 @@
 				description: clopyText
 			},
 			{
-				position: new naver.maps.LatLng( 37.869110939247896, 127.1566229743098+0.00015),
+				position: new naver.maps.LatLng(37.869110939247896, 127.1566229743098 + 0.00015),
 				title: "여자 기숙사 cu 키오스크",
 				icon: HOME_PATH + '/img/kiosk.png',
-				description:imgTag100 + "1.jpg' >"
+				description: imgTag100 + "1.jpg' >"
 			},
 			{
-				position: new naver.maps.LatLng(37.87126827034607, 127.15525516151271+0.00015),
+				position: new naver.maps.LatLng(37.87126827034607, 127.15525516151271 + 0.00015),
 				title: "학생회관 1층 키오스크",
 				icon: HOME_PATH + '/img/kiosk.png',
 				description: imgTag100 + "2.jpg' >"
 			},
 		];
 
-		
+
 		var HOME_PATH = window.HOME_PATH || '.';
 		for (var i = 0; i < markerData.length; i++) {
-			var markerIcon = markerData[i].icon|| HOME_PATH + '/img/printer.png';
+			var markerIcon = markerData[i].icon || HOME_PATH + '/img/printer.png';
 			var marker = new naver.maps.Marker({
 				position: markerData[i].position,
 				map: map,
@@ -159,7 +177,6 @@
 			naver.maps.Event.addListener(marker, "click", getMarkerClickListener(map, marker, markerData[i].title, markerData[i].description));
 		}
 
-		var currentInfoWindow = null;
 		function getMarkerClickListener(map, marker, title, description) {
 			return function (e) {
 				var contentString = [
@@ -168,27 +185,35 @@
 					'<p>' + description + '</p>',
 					'</div>'
 				].join('');
-				var infowindow = new naver.maps.InfoWindow({
-					content: contentString
-				});
-
-				if (currentInfoWindow) {
-					currentInfoWindow.close();
+				var infoPanel = document.getElementById('info-panel');
+				if (infoPanel.classList.contains('expanded')) {
+					infoPanel.classList.remove('expanded');
+				} else {
+					infoPanel.classList.add('expanded');
 				}
-
-				currentInfoWindow = infowindow;
-
-				infowindow.open(map, marker);
+                document.querySelector('#info-panel p').innerHTML = description;
 			};
 		}
 
-		naver.maps.Event.addListener(map, 'click', function () {
-			if (currentInfoWindow) {
-				currentInfoWindow.close();
-				currentInfoWindow = null;
+		var infoPanel = document.getElementById('info-panel');
+		infoPanel.addEventListener('click', function (e) {
+			e.stopPropagation();
+		});
+		naver.maps.Event.addListener(map, 'dragstart', function () {
+			var infoPanel = document.getElementById('info-panel');
+			if (infoPanel.classList.contains('expanded')) {
+				infoPanel.classList.remove('expanded');
 			}
 		});
-		
+
+		naver.maps.Event.addListener(map, 'click', function () {
+			var infoPanel = document.getElementById('info-panel');
+			if (infoPanel.classList.contains('expanded')) {
+				infoPanel.classList.remove('expanded');
+			}
+		});
+
+
 	</script>
 </body>
 
